@@ -4,12 +4,17 @@
 
 ## Current behavior
 
-No pull requests are opened to update the docker image used for the CircleCI executor.
+When using yaml aliases, no pull requests are opened to update the docker image used for the CircleCI executor.
+
 ```
+aliases:
+  - &working_directory ~/circleci-executors
+
 executors:
   rust-docker:
     docker:
       - image: cimg/rust:1.82.0
+    working_directory: *working_directory
 ```
 
 (version 1.82.0 is outdated: https://circleci.com/developer/images/image/cimg/rust)
@@ -19,10 +24,14 @@ executors:
 A pull request should be opened to update the docker image used for the CircleCI executor.
 
 ```
+aliases:
+  - &working_directory ~/circleci-executors
+
 executors:
   rust-docker:
     docker:
       - image: cimg/rust:1.84.1
+    working_directory: *working_directory
 ```
 
 ## Link to the Renovate issue or Discussion
