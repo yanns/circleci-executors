@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  vault-orb: commercetools/vault-orb@0.7.0
+
 executors:
   rust-docker:
     docker:
