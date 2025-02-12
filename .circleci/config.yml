@@ -1,0 +1,18 @@
+version: 2.1
+
+executors:
+  rust-docker:
+    docker:
+      - image: cimg/rust:1.82.0
+
+jobs:
+  build:
+    executor: rust-docker
+    steps:
+      - checkout
+      - run: cargo --version
+
+workflows:
+  build:
+    jobs:
+      - build
